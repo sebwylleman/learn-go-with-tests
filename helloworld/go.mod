@@ -1,3 +1,3 @@
-module github.com/sebwylleman/helloworld
+module hello
 
 go 1.22.1
