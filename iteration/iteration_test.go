@@ -20,6 +20,7 @@ func BenchmarkRepeat(b *testing.B) {
 }
 
 func ExampleRepeat() {
-	fmt.Println(Repeat("b", 3))
-	// Output: "bbb"
+	result := Repeat("b", 3)
+	fmt.Println(result)
+	// Output: bbb
 }
