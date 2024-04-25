@@ -10,8 +10,19 @@ func Sum(numbers []int) int {
 
 func SumAll(numbersToSum ...[]int) []int {
 	var sum []int
-	for _, v := range numbersToSum {
-		sum = append(sum, Sum(v))
+	for _, numbers := range numbersToSum {
+		sum = append(sum, Sum(numbers))
+	}
+	return sum
+}
+
+// SumAllTails returns a slice of the sum of all elements excluding the first, for each passed slice.
+func SumAllTails(numbersToSum ...[]int) []int {
+	var sum []int
+	var tail []int
+	for _, numbers := range numbersToSum {
+		tail = numbers[1:]
+		sum = append(sum, Sum(tail))
 	}
 	return sum
 }
