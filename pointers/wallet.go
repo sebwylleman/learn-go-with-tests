@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Bitcoin int
 
@@ -13,7 +15,7 @@ type Wallet struct {
 }
 
 func (w *Wallet) Deposit(amount Bitcoin) {
-	w.balance += 10
+	w.balance += amount
 }
 
 func (w *Wallet) Balance() Bitcoin {
@@ -24,6 +26,10 @@ func (b Bitcoin) String() string {
 	return fmt.Sprintf("%d BTC", b)
 }
 
-func (w *Wallet) Withdraw(amount Bitcoin) {
+func (w *Wallet) Withdraw(amount Bitcoin) error {
+	if amount > w.balance {
+		return fmt.Errorf("Insufficient balance to withdraw %s", amount)
+	}
 	w.balance -= amount
+	return nil
 }
