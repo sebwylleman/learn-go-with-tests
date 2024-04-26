@@ -7,6 +7,6 @@ func TestPerimeter(t *testing.T) {
 	want := 40.0
 
 	if got != want {
-		t.Errorf("got %f, want %f", got, want)
+		t.Errorf("got %.2f, want %.2f", got, want)
 	}
 }
